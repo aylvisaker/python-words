@@ -1,7 +1,8 @@
 import os, math, random, string, re
 
-#TODO date of birth
-#TODO address
+#TODO random date of birth
+#TODO random address with valid ZIP code
+#TODO random phone number
 
 # list of characters for passwords
 lowercase = string.ascii_lowercase
@@ -11,13 +12,13 @@ symbols = string.punctuation
 characters = lowercase + uppercase + digits + symbols + ' '
 
 # list of words for passphrases
-commonwords1000 = open('1000.txt', 'r').readlines()
-commonwords5000 = open('5000.txt', 'r').readlines()
-adjectives = open("adjectives.txt", 'r').readlines()
-nouns = open("nouns.txt", 'r').readlines()
-electrum = open('electrum.txt', 'r').readlines()
-wwf_additions = open('enable1-wwf-v4.0-wordlist-additions.txt', 'r').readlines()
-enable = open('enable.txt', 'r').readlines()
+commonwords1000 = open('lists/1000.txt', 'r').readlines()
+commonwords5000 = open('lists/5000.txt', 'r').readlines()
+adjectives = open('lists/adjectives.txt', 'r').readlines()
+nouns = open('lists/nouns.txt', 'r').readlines()
+electrum = open('lists/electrum.txt', 'r').readlines()
+wwf_additions = open('lists/enable1-wwf-v4.0-wordlist-additions.txt', 'r').readlines()
+enable = open('lists/enable.txt', 'r').readlines()
 # add enable to dictionaries to use a very large word list
 dictionaries = [commonwords1000, commonwords5000, adjectives, nouns, electrum, wwf_additions]
 dictionaries = map(lambda x: [y[:-1].lower() for y in x], dictionaries)
@@ -31,9 +32,9 @@ words = list(words)
 # words = [word for word in words if pattern.match(word)]
 
 # list of given names and surnames
-male_names = list(open('malenames.txt', 'r').readlines())
-female_names = list(open('femalenames.txt', 'r').readlines())
-surnames = list(open('surnames.txt', 'r').readlines())
+male_names = list(open('lists/malenames.txt', 'r').readlines())
+female_names = list(open('lists/femalenames.txt', 'r').readlines())
+surnames = list(open('lists/surnames.txt', 'r').readlines())
 names = [male_names, female_names, surnames]
 names = map(lambda x: [y[:-1].title() for y in x], names)
 
